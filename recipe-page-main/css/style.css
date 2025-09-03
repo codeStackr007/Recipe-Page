@@ -1,0 +1,236 @@
+/* ===== CSS CUSTOM PROPERTIES ===== */
+:root {
+  /* Color Variables */
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-stone-100: hsl(30, 54%, 90%);
+  --clr-stone-150: hsl(30, 18%, 87%);
+  --clr-stone-600: hsl(30, 10%, 34%);
+  --clr-stone-900: hsl(24, 5%, 18%);
+  --clr-brown-800: hsl(14, 45%, 36%);
+  --clr-rose-800: hsl(332, 51%, 32%);
+  --clr-rose-50: hsl(330, 100%, 98%);
+
+  /* Font Family Variables */
+  --ff-heading: "Young Serif", serif;
+  --ff-body: "Outfit", sans-serif;
+
+  /* Font Weight Variables */
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--clr-stone-100);
+  color: var(--clr-stone-600);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== LAYOUT COMPONENTS ===== */
+.page-container {
+  width: 100%;
+  max-width: 736px;
+  padding: 2rem;
+}
+
+.recipe-card {
+  background-color: var(--clr-white);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+}
+
+/* ===== RECIPE CARD ELEMENTS ===== */
+.recipe-card__image-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.recipe-card__image {
+  display: block;
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.recipe-card__title {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-regular);
+  color: var(--clr-stone-900);
+  margin-bottom: 1.5rem;
+}
+
+.recipe-card__description {
+  margin-bottom: 2.5rem;
+}
+
+/* ===== PREPARATION SECTION ===== */
+.preparation {
+  background-color: var(--clr-rose-50);
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.preparation__title {
+  color: var(--clr-rose-800);
+  font-weight: var(--fw-semi-bold);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.preparation__list {
+  list-style: none;
+}
+
+.preparation__item {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.preparation__item::before {
+  content: "•";
+  position: absolute;
+  left: 0.75rem;
+  color: var(--clr-rose-800);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.preparation__item-term {
+  font-weight: var(--fw-bold);
+  color: var(--clr-stone-600);
+}
+
+/* ===== SECTION SPACING ===== */
+.ingredients,
+.instructions,
+.nutrition {
+  margin-bottom: 2.5rem;
+}
+
+/* ===== SECTION TITLES ===== */
+.ingredients__title,
+.instructions__title,
+.nutrition__title {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-regular);
+  color: var(--clr-brown-800);
+  margin-bottom: 1.25rem;
+}
+
+/* ===== INGREDIENTS SECTION ===== */
+.ingredients__list {
+  list-style: none;
+}
+
+.ingredients__item {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ingredients__item::before {
+  content: "•";
+  position: absolute;
+  left: 0.75rem;
+  color: var(--clr-brown-800);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* ===== INSTRUCTIONS SECTION ===== */
+.instructions__list {
+  list-style: none;
+  counter-reset: instructions-counter;
+}
+
+.instructions__item {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.instructions__item::before {
+  content: counter(instructions-counter) ".";
+  counter-increment: instructions-counter;
+  position: absolute;
+  left: 0.75rem;
+  color: var(--clr-brown-800);
+  font-weight: var(--fw-bold);
+}
+
+.instructions__item-term {
+  font-weight: var(--fw-bold);
+  color: var(--clr-stone-600);
+}
+
+/* ===== NUTRITION SECTION ===== */
+.nutrition__description {
+  margin-bottom: 1.25rem;
+}
+
+.nutrition__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nutrition__table tr {
+  border-bottom: 1px solid var(--clr-stone-150);
+}
+
+.nutrition__table tr:last-child {
+  border-bottom: none;
+}
+
+.nutrition__table td {
+  padding: 0.875rem 0;
+}
+
+.nutrition__label {
+  padding-left: 2rem;
+}
+
+.nutrition__value {
+  padding-left: 50%;
+  color: var(--clr-brown-800);
+  font-weight: var(--fw-bold);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .recipe-card {
+    border-radius: 10px;
+    padding: 0;
+  }
+
+  .recipe-card__image-wrapper {
+    margin: 0;
+  }
+
+  .recipe-card__image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .recipe-card__content {
+    padding: 2.5rem 2rem;
+  }
+}
